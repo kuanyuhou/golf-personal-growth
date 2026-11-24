@@ -4,6 +4,8 @@ import { readFileSync, writeFileSync } from "node:fs";
 
 const SITE = "高爾夫球與個人成長";
 const TAGLINE = "從一顆小白球，練習誠實、專注與堅持";
+const BASE = "https://kuanyuhou.github.io/golf-personal-growth/";
+const OG_IMAGE = `${BASE}og-image.png`; // 原始設計在 og/og.html，1200×630
 
 // nav: 導覽列文字；star: 重點頁（品格）
 const pages = [
@@ -34,6 +36,7 @@ function nav(current) {
 for (const p of pages) {
   const body = readFileSync(`content/${p.file}.html`, "utf8").trim();
   const title = p.file === "index" ? SITE : `${p.title}｜${SITE}`;
+  const url = p.file === "index" ? BASE : `${BASE}${p.file}.html`;
   const html = `<!doctype html>
 <html lang="zh-Hant">
 <head>
@@ -42,6 +45,20 @@ for (const p of pages) {
 <title>${title}</title>
 <meta name="description" content="${p.desc}">
 <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="${SITE}">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:title" content="${title}">
+<meta property="og:description" content="${p.desc}">
+<meta property="og:url" content="${url}">
+<meta property="og:image" content="${OG_IMAGE}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="${SITE}：${TAGLINE}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${title}">
+<meta name="twitter:description" content="${p.desc}">
+<meta name="twitter:image" content="${OG_IMAGE}">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
