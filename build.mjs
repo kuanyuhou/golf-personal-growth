@@ -5,7 +5,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 const SITE = "高爾夫球與個人成長";
 const TAGLINE = "從一顆小白球，練習誠實、專注與堅持";
 const BASE = "https://kuanyuhou.github.io/golf-personal-growth/";
-const OG_IMAGE = `${BASE}og-image.png`; // 原始設計在 og/og.html，1200×630
+const OG_IMAGE = `${BASE}og-image.png?v=2`; // 原始設計在 og/og.html，1200×630
 
 // nav: 導覽列文字；star: 重點頁（品格）
 const pages = [
@@ -54,7 +54,7 @@ for (const p of pages) {
 <meta property="og:image" content="${OG_IMAGE}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="${SITE}：${TAGLINE}">
+<meta property="og:image:alt" content="高爾夫與個人成長：${TAGLINE}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${title}">
 <meta name="twitter:description" content="${p.desc}">
