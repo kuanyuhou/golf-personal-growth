@@ -45,6 +45,8 @@ for (const p of pages) {
 <title>${title}</title>
 <meta name="description" content="${p.desc}">
 <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png?v=2" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2" sizes="180x180">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="${SITE}">
 <meta property="og:locale" content="zh_TW">
@@ -63,7 +65,7 @@ for (const p of pages) {
 </head>
 <body>
 <header class="site"><div class="inner">
-  <a class="brand" href="index.html">${SITE}</a>
+  <a class="brand" href="index.html"><img class="logo" src="favicon.svg?v=2" alt="" width="40" height="40">${SITE}</a>
   <p>${TAGLINE}</p>
   <nav class="site">
 ${nav(p.file)}
